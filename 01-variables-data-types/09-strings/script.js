@@ -17,12 +17,12 @@ x=s.toLowerCase();
 x=s.charAt(0);
 x=s.indexOf('e');
 x=s.substring(1,4);
-x=s.slice(-11,-5);
+x=s.slice(-11,-5);// like substring but can begin at the ends of 
 x='                                Hello World';
-x=s.trim();
+x=s.trim();// delete extra espace
 x=s.replace('World', 'john');
 x=s.includes('ello');
 x=s.valueOf();
-x=s.split('');
+x=s.split('');// separate a string in array
 
 console.log(x);

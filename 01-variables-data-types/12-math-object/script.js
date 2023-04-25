@@ -1,0 +1,11 @@
+let x;
+x=Math.sqrt(9);
+x=Math.abs(-50);
+x=Math.round(4.7);
+x=Math.ceil(4.6);
+x=Math.floor(4.9);
+x=Math.min(4,5,2);
+x=Math.max(4,5,2);
+x=Math.random(10,100);
+let y=Math.floor(Math.random()*10+1);
+console.log(y);

@@ -1,0 +1,11 @@
+const y=Math.floor(Math.random()*50+1);
+const x=Math.floor(Math.random()*50+1);
+let sum,diff,prod,rem;
+sum=`${x}+${y}=`+(x+y);
+diff=`${x}-${y}=`+(x-y);
+prod=`${x}*${y}=`+(x*y);
+rem=`${x}%${y}=`+(x%y);
+console.log(sum);
+console.log(diff);
+console.log(prod);
+console.log(rem);

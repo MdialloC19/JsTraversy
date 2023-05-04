@@ -42,4 +42,4 @@ x= Object.entries(todo);// having both key and value
 
 x=todo.hasOwnProperty('age');// for verifing if an property exist in a array
 
-console.log(x);
+console.log(x); 

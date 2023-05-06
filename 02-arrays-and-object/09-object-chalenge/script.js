@@ -41,7 +41,6 @@ library[2].status.read=true;
 const {title:firstBook}=library[0];
 
 
-
 //step 4
 
 const jsonObject=JSON.stringify(library);

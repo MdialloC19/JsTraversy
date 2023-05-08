@@ -14,7 +14,7 @@ for(let i=0;i<=10;i++){
 if(true){
     const a=100;
     let b=700;
-    var c=600;
+    var c=800;
 }
 
 console.log(c);

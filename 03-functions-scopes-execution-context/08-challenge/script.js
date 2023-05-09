@@ -27,3 +27,9 @@ const minMax=(arrow)=>{
 }
 
 console.log(minMax([2,4,3,10,24,0,1,-5,11]));
+
+// Challenge 3
+
+((length,width)=>{
+    console.log(`the area of rectangle with length ${length} and width ${width} is ${width*length}`)
+})(5,6);

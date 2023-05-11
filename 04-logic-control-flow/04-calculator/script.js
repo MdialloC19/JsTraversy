@@ -12,11 +12,11 @@ function calculator(num1,num2,opp){
             console.log(`multiplication of ${num1}*${num2}=${num1*num2}`);
             break;
         case "/":
-            console.log(`sdiv of ${num1}/${num2}=${num1/num2}`);
+            console.log(`sdiv of ${num1}:${num2}=${num1/num2}`);
         break;
         default:
             console.log("Operation invalid");
     }
 }
 
-calculator(1,1,"-");
+calculator(1,1,"/");

@@ -20,7 +20,7 @@ const socialObjs=[
     {name: 'Twitter', url:'https://twitter.com'},
     {name :'facebook', url:'https://faceboook.com'},
     {name:'instagram',url:'https://instagram.com'},
-]
+] 
 
 socialObjs.forEach(item=>console.log(item.url));
 

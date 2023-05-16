@@ -62,4 +62,19 @@ const squareAnddouble=numbers
     .map((sqrt)=>sqrt*2);
 
 
-console.log(squareAnddouble);
+const squareAnddouble2=numbers
+    .map(function (number){
+        return Math.sqrt(number);
+    })
+    .map(function(voir){
+        return voir*2;
+    })
+console.log(squareAnddouble2);
+
+// Chaining different methods
+
+const evenDouble =numbers
+    .filter((number)=>number%2==0)
+    .map((number)=>number*2);
+
+console.log(evenDouble);

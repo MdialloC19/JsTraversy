@@ -1,6 +1,6 @@
 //querySelectorAll()
 
-const listItems=document.querySelector('.item');
+const listItems=document.querySelectorAll('.item');
 
 console.log(listItems);
 

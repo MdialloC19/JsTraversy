@@ -1,14 +1,14 @@
-// const elt= document.createElement('li');
+const elt= document.createElement('li');
 
-// elt.setAttribute('class','item');
-// const text=document.createTextNode(`Banana <button class="remove-item btn-link text-red">
-// <i class="fa-solid fa-xmark"></i></button>`);
+elt.setAttribute('class','item');
+elt.innerHTML=`Banana <button class="remove-item btn-link text-red">
+<i class="fa-solid fa-xmark"></i></button>`;
 
-// elt.appendChild(text);
 
-// const list=document.querySelector('ul');
 
-// list.appendChild(elt);
+const list=document.querySelector('ul');
+
+list.appendChild(elt);
 
 // div.className='my-element';
 // div.id='my-element';

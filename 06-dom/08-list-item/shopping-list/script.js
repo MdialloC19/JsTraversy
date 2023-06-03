@@ -19,12 +19,9 @@ function createNewItem(item){
     const text =document.createTextNode(item);
     li.appendChild(text);
     
-    const button=document.createElement('button');
-    button.setAttribute('class','remove-item btn-link text-red');
+    const button=createButton('remove-item btn-link text-red')
     
-    const icon=document.createElement('i');
-    icon.setAttribute('class','fa-solid fa-xmark');
-    button.appendChild(icon);
+    
     li.appendChild(button);
     
     console.log(li.innerHTML);
@@ -34,5 +31,25 @@ function createNewItem(item){
 
 }
 
+// creating function with buttton
+
+function createButton(classes){
+    const button=document.createElement('button');
+    button.setAttribute('class',classes);
+
+    const icon=createIcon('fa-solid fa-xmark');
+    button.appendChild(icon);
+
+    return button;
+
+}
+
+function createIcon(classes){
+    const icon=document.createElement('i');
+    icon.setAttribute('class',classes);
+
+    return icon;
+}
+
 listItems('banana');
-createNewItem('eggs');
+createNewItem('sauce');

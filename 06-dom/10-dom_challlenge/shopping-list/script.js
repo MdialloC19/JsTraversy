@@ -24,4 +24,4 @@ function insertAfter2(newElt, existEl) {
     (existEl.parentNode).insertBefore(newElt, existEl.nextSibling);
   }
 
-insertAfter(li.innerHTMLinnerHTML,thirdItem);
+insertAfter2(li,thirdItem);

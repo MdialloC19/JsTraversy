@@ -38,4 +38,4 @@ const removeItem4=(itemNumber)=> document.
 
 removeClearButton();
 // removeFirstItem();
-removeItem4(2);
+removeItem(2);

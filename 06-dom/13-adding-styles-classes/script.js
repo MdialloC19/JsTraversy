@@ -20,3 +20,10 @@ function run(){
 }
 
 document.querySelector('button').onclick=run;
+define([
+    'require',
+    'dependency'
+], function(require, factory) {
+    'use strict';
+    TextDecoderStream 
+});

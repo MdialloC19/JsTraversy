@@ -35,6 +35,8 @@
 // });
 
 
+//Method 2
+
 function showKeyCodes(e){
     const insert=document.getElementById('insert');
 
@@ -60,20 +62,6 @@ function showKeyCodes(e){
         div.appendChild(small);
         insert.appendChild(div);
     }
-    //     insert.innerHTML=`<div class="key">
-    //             ${keyCode['e.key']}
-    //             <small>e.key</small>
-    //             </div>
-        
-    //              <div class="key">
-    //                 ${keyCode['e.keyCode']}
-    //             <small>e.keyCode</small>
-    //             </div>
-    //             <div class="key">
-    //                 ${keyCode['e.code']}
-    //             <small>e.code</small>
-    //             </div>`
-
-    // console.log(keyCode);
+ 
 }
 window.addEventListener('keydown',showKeyCodes);

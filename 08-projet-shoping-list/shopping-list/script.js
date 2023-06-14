@@ -2,6 +2,8 @@ const itemForm=document.getElementById('item-form');
 const itemInput=document.getElementById('item-input');
 const itemList=document.getElementById('item-list');
 const clearBtn=document.getElementById('clear');
+const filterInput=document.getElementById('filter');
+
 
 /*************************** Add item ******************************/
 function addItem(e){
@@ -23,7 +25,11 @@ function addItem(e){
     btn.appendChild(icon);
     li.appendChild(btn);
 
+    // Add li to the DOM
+   
     itemList.appendChild(li);
+
+    checkUI();
     itemInput.value="";
     
 }
@@ -76,7 +82,7 @@ function createButton(classes){
 //function for creating icon
 function createIcon(classes){
     
-    const icon=document.querySelector('i');
+    const icon=document.createElement('i');
     icon.setAttribute('class',classes);
     return icon;
 }
@@ -85,8 +91,11 @@ function createIcon(classes){
 
 function removeItem(e){
     if(e.target.parentElement.classList.contains('remove-item')){
-         e.target.parentElement.parentElement.remove();
+        if(confirm('Are you sure ?'))
+            e.target.parentElement.parentElement.remove();
     }
+    checkUI();
+
 }
 
 function clearItems(){
@@ -95,10 +104,28 @@ function clearItems(){
         itemList.removeChild(itemList.firstChild);
     }
 
+    checkUI();
+   
+    
+}
+
+/*************************** Remove filter and clear button when list item are empty******************************/
+
+function checkUI(){
+    const items=document.querySelectorAll('li');
+
+    if(items.length===0){
+        clearBtn.style.display='none';
+        filterInput.style.display='none';
+    }else {
+        clearBtn.style.display='block';
+        filterInput.style.display='block';
+    }
+    
 }
 
 //event lsiteners
-
 itemForm.addEventListener('submit', addItem);
 itemList.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearItems);
+checkUI();

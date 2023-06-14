@@ -7,7 +7,7 @@ const list=document.querySelector('ul');
 //        e.target.remove();
 //     });
 // });
-//target gice you what do you on
+//target give  what do you click on
 // currentTarget will give you the elt with evenListener
 
 

@@ -1,8 +1,9 @@
 const itemForm=document.getElementById('item-form');
 const itemInput=document.getElementById('item-input');
 const itemList=document.getElementById('item-list');
+const clearBtn=document.getElementById('clear');
 
-// console.log(itemInput.value='vue');
+/*************************** Add item ******************************/
 function addItem(e){
     e.preventDefault();
     const newItem=itemInput.value;
@@ -61,11 +62,7 @@ function addAfter(eltTOAdd,elt){
     // ref.insertBefore(eltTOAdd,elt.nextSibling);
 
     //Another way doing that
-
-    elt.insertAdjacentElement('afterEnd',eltTOAdd);
-
-    
-
+    elt.insertAdjacentElement('afterEnd',eltTOAdd); 
 }
 
 // fucntion for creating button
@@ -84,6 +81,24 @@ function createIcon(classes){
     return icon;
 }
 
+/*************************** Remove item ******************************/
+
+function removeItem(e){
+    if(e.target.parentElement.classList.contains('remove-item')){
+         e.target.parentElement.parentElement.remove();
+    }
+}
+
+function clearItems(){
+    // itemList.innerHTML=" "; //this work
+    while(itemList.firstChild){
+        itemList.removeChild(itemList.firstChild);
+    }
+
+}
+
 //event lsiteners
 
-itemForm.addEventListener('submit', addOnTop);
+itemForm.addEventListener('submit', addItem);
+itemList.addEventListener('click', removeItem);
+clearBtn.addEventListener('click', clearItems);

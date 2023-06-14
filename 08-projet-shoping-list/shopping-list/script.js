@@ -109,6 +109,23 @@ function clearItems(){
     
 }
 
+/***************************  filter  item ******************************/
+
+function filterItems(e){
+    const items=document.querySelectorAll('li');
+    const text=e.target.value.toLowerCase();
+    items.forEach((item)=>{
+        const itemName=item.firstChild.textContent.toLowerCase();
+        
+        if(itemName.indexOf(text)!=-1){
+            item.style.display='flex';
+        }else{
+            item.style.display='none';
+        }
+    })
+
+}
+
 /*************************** Remove filter and clear button when list item are empty******************************/
 
 function checkUI(){
@@ -124,8 +141,14 @@ function checkUI(){
     
 }
 
+
+
 //event lsiteners
 itemForm.addEventListener('submit', addItem);
 itemList.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearItems);
+
+filterInput.addEventListener('input', filterItems);
+
+
 checkUI();

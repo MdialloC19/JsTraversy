@@ -7,6 +7,14 @@ const clearBtn=document.getElementById('clear');
 const filterInput=document.getElementById('filter');
 
 
+/*************************** Displaying item on load ******************************/
+
+function displayItems(){
+    const itemFromStorage=getItemFromStorage();
+    itemFromStorage.forEach((item)=>addItemToDOM(item));
+    checkUI();
+}
+
 /*************************** Add item ******************************/
 
 function onAddItemSubmit(e){
@@ -29,25 +37,6 @@ function onAddItemSubmit(e){
     
 }
 
-function addItemToStorage(item){
-    let itemFromLocalStorage;
-
-    if(localStorage.getItem('items')===null){
-        itemFromStorage=[];
-    }else {
-        itemFromStorage=JSON.parse(localStorage.getItem('items'));
-    }
-   // Add new item in the array
-    itemFromStorage.push(item);
-
-    //convert to JSON string and set Local storage
-
-    localStorage.setItem('items',JSON.stringify(itemFromStorage));
-
-
-
-}
-
 function addItemToDOM(item){
 
     // create list item
@@ -65,7 +54,49 @@ function addItemToDOM(item){
     itemList.appendChild(li);
 
 }
-//for my training
+// fucntion for creating button
+function createButton(classes){
+
+    const btn=document.createElement('button');
+    btn.setAttribute('class',classes);
+    return btn;    
+}
+
+//function for creating icon
+function createIcon(classes){
+    
+    const icon=document.createElement('i');
+    icon.setAttribute('class',classes);
+    return icon;
+}
+
+/*************************** Local Storage ******************************/
+
+
+function addItemToStorage(item){
+   const itemFromLocalStorage=getItemFromStorage();
+   // Add new item in the array
+    itemFromStorage.push(item);
+
+    //convert to JSON string and set Local storage
+    localStorage.setItem('items',JSON.stringify(itemFromStorage));
+}
+
+function getItemFromStorage(){
+    let itemFromLocalStorage;
+
+    if(localStorage.getItem('items')===null){
+        itemFromStorage=[];
+
+    }else {
+
+        itemFromStorage=JSON.parse(localStorage.getItem('items'));
+    }
+    return itemFromStorage;
+
+}
+
+/*************************** //for my training ******************************/
 
 function addOnTop(e){
 
@@ -103,21 +134,8 @@ function addAfter(eltTOAdd,elt){
     elt.insertAdjacentElement('afterEnd',eltTOAdd); 
 }
 
-// fucntion for creating button
-function createButton(classes){
+/*************************** //for my training ******************************/
 
-    const btn=document.createElement('button');
-    btn.setAttribute('class',classes);
-    return btn;    
-}
-
-//function for creating icon
-function createIcon(classes){
-    
-    const icon=document.createElement('i');
-    icon.setAttribute('class',classes);
-    return icon;
-}
 
 /*************************** Remove item ******************************/
 
@@ -146,7 +164,8 @@ function clearItems(){
 function filterItems(e){
     const items=document.querySelectorAll('li');
     const text=e.target.value.toLowerCase();
-    items.forEach((item)=>{
+    items.forEach(
+        (item)=>{
         const itemName=item.firstChild.textContent.toLowerCase();
         
         if(itemName.indexOf(text)!=-1){
@@ -158,7 +177,7 @@ function filterItems(e){
 
 }
 
-/***************Remove filter and clear button when list item are empty************/
+/**********Remove filter and clear button when list item are empty *********/
 
 function checkUI(){
     const items=document.querySelectorAll('li');
@@ -174,6 +193,7 @@ function checkUI(){
 
 /********* Remove filter and clear button when list item are empty ***********/
 
+function init(){
 
 //Event lsiteners
 
@@ -181,5 +201,10 @@ itemForm.addEventListener('submit', onAddItemSubmit);
 itemList.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearItems);
 filterInput.addEventListener('input', filterItems);
+document.addEventListener('DOMContentLoaded',displayItems);
 
 checkUI();
+
+}
+
+init();

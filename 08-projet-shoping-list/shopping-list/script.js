@@ -1,3 +1,5 @@
+/*************************** Variables ******************************/
+
 const itemForm=document.getElementById('item-form');
 const itemInput=document.getElementById('item-input');
 const itemList=document.getElementById('item-list');
@@ -6,7 +8,8 @@ const filterInput=document.getElementById('filter');
 
 
 /*************************** Add item ******************************/
-function addItem(e){
+
+function onAddItemSubmit(e){
     e.preventDefault();
     const newItem=itemInput.value;
     
@@ -15,9 +18,41 @@ function addItem(e){
         alert('Please add an item');
         return;
     }
+    //Add new item to the dom
+    addItemToDOM(newItem);
+
+   //item to local storage 
+   addItemToStorage(newItem);
+
+    checkUI();
+    itemInput.value="";
+    
+}
+
+function addItemToStorage(item){
+    let itemFromLocalStorage;
+
+    if(localStorage.getItem('items')===null){
+        itemFromStorage=[];
+    }else {
+        itemFromStorage=JSON.parse(localStorage.getItem('items'));
+    }
+   // Add new item in the array
+    itemFromStorage.push(item);
+
+    //convert to JSON string and set Local storage
+
+    localStorage.setItem('items',JSON.stringify(itemFromStorage));
+
+
+
+}
+
+function addItemToDOM(item){
+
     // create list item
     const li=document.createElement('li');
-    li.appendChild(document.createTextNode(newItem));
+    li.appendChild(document.createTextNode(item));
 
     const btn=createButton('remove-item btn-link text-red');
     const icon=createIcon('fa-solid fa-xmark');
@@ -29,9 +64,6 @@ function addItem(e){
    
     itemList.appendChild(li);
 
-    checkUI();
-    itemInput.value="";
-    
 }
 //for my training
 
@@ -109,7 +141,7 @@ function clearItems(){
     
 }
 
-/***************************  filter  item ******************************/
+/***************************  Filter  item ******************************/
 
 function filterItems(e){
     const items=document.querySelectorAll('li');
@@ -126,7 +158,7 @@ function filterItems(e){
 
 }
 
-/*************************** Remove filter and clear button when list item are empty******************************/
+/***************Remove filter and clear button when list item are empty************/
 
 function checkUI(){
     const items=document.querySelectorAll('li');
@@ -138,17 +170,16 @@ function checkUI(){
         clearBtn.style.display='block';
         filterInput.style.display='block';
     }
-    
 }
 
+/********* Remove filter and clear button when list item are empty ***********/
 
 
-//event lsiteners
-itemForm.addEventListener('submit', addItem);
+//Event lsiteners
+
+itemForm.addEventListener('submit', onAddItemSubmit);
 itemList.addEventListener('click', removeItem);
 clearBtn.addEventListener('click', clearItems);
-
 filterInput.addEventListener('input', filterItems);
-
 
 checkUI();

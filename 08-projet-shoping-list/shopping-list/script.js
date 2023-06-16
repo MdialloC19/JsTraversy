@@ -29,6 +29,16 @@ function onAddItemSubmit(e){
         alert('Please add an item');
         return;
     }
+
+    // Check for edit mode
+
+    if(isEditMode){
+        const itemToEdit=itemList.querySelector('.edit-mode');
+        removeItemFromStorage(itemToEdit.textContent);
+        itemToEdit.classList.remove('.edit-mode');
+        itemToEdit.remove();
+        isEditMode=false;
+    }
     //Add new item to the dom
     addItemToDOM(newItem);
 
@@ -150,7 +160,7 @@ function OnClickItem(e){
     }else{
         setItemToEditMode(e.target);
     }
-    checkUI();
+   
 }
 
 function  setItemToEditMode(item){
@@ -225,6 +235,7 @@ function filterItems(e){
 /**********Remove filter and clear button when list item are empty *********/
 
 function checkUI(){
+    itemInput.value="";
     const items=document.querySelectorAll('li');
 
     if(items.length===0){
@@ -234,6 +245,12 @@ function checkUI(){
         clearBtn.style.display='block';
         filterInput.style.display='block';
     }
+    
+    formBtn.innerHTML='<i class="fa-solid fa-plus"></i>Add Item ';
+    formBtn.style.backgroundColor="#333";
+
+    isEditMode=false;
+
 }
 
 /********* Remove filter and clear button when list item are empty ***********/

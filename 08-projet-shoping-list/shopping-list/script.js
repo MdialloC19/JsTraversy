@@ -5,6 +5,9 @@ const itemInput=document.getElementById('item-input');
 const itemList=document.getElementById('item-list');
 const clearBtn=document.getElementById('clear');
 const filterInput=document.getElementById('filter');
+const formBtn=itemForm.querySelector('button');
+
+let isEditMode=false;
 
 
 /*************************** Displaying item on load *****************/
@@ -144,8 +147,22 @@ function OnClickItem(e){
         if(confirm('Are you sure ?')){
             removeItem(e.target.parentElement.parentElement);
         }
+    }else{
+        setItemToEditMode(e.target);
     }
     checkUI();
+}
+
+function  setItemToEditMode(item){
+
+    isEditMode=true
+    itemList.querySelectorAll('li')
+            .forEach((i) =>i.classList.remove('edit-mode'));
+    item.classList.add('edit-mode');
+    formBtn.style.backgroundColor="#228B22";
+    formBtn.innerHTML='<i class="fa-solid fa-pen"> </i> Update item';
+    itemInput.value=item.textContent;
+    
 }
 
 function removeItem(item){

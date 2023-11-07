@@ -50,7 +50,7 @@ const youngPeople=peoples
     .filter((people)=>(people.age<=25))
     .map((elt)=>{
         return {
-            name:elt.firstName,
+            name:elt.firstName +" "+ elt.lastName,
             email:elt.email,
         }
     });

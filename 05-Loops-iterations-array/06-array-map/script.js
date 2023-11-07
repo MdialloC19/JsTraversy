@@ -66,8 +66,8 @@ const squareAnddouble2=numbers
     .map(function (number){
         return Math.sqrt(number);
     })
-    .map(function(voir){
-        return voir*2;
+    .map(function(sqrtDoubled){
+        return sqrtDoubled*2;
     })
 console.log(squareAnddouble2);
 

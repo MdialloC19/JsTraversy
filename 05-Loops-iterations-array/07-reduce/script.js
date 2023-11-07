@@ -6,7 +6,7 @@ const sum=numbers.reduce(function(accumulator,currentValue){
 
 const sum1=numbers.reduce((acc,cur)=>acc+cur,10);
 
-
+console.log(sum1);
 const sum3=()=>{
     let acc=0;
     for(const cur of numbers){

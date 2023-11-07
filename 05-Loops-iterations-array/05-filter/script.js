@@ -18,7 +18,7 @@ const numbers =[1,2,3,4,5,6,7,8,9,10];
 
 const companies =[
     {name: 'Compagny One', category: 'Finance', start:1989, end: 2004},
-    {name: 'Compagny 2', category: 'BOok', start:1981, end: 2004},
+    {name: 'Compagny 2', category: 'Book', start:1981, end: 2004},
     {name: 'Compagny 3', category: 'consulting', start:1981, end: 2008},
     {name: 'Compagny 4 ', category: 'Retail', start:1981, end: 2009},
     {name: 'Compagny 5', category: 'Finance', start:1921, end: 2000},
@@ -36,3 +36,17 @@ const companies =[
    const Retail= companies.filter((
     companie)=> companie.category==='Retail');
 console.log(Retail);
+
+//Get companies started in or after 1980 and ended in or before 2005
+
+const earlyCompagnies=companies.filter((
+    companie)=> companie.start >=1980 && companie.end<=2005);
+console.log(earlyCompagnies);
+
+//Get campagnies that lasted 10 years or more
+
+const longCompanies= companies.filter((
+    companie
+)=>(companie.end-companie.start)>=10);
+
+console.log(longCompanies);

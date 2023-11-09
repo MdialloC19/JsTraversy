@@ -4,29 +4,39 @@ let output;
 
 const parent =document.querySelector('.parent');
 
-output=parent.children[1];
-
+output=parent.children;
+output=parent.children[0];
+output=parent.children[0].className;
 output=parent.children[1].nodeName;
+
 
 parent.children[1].innerText='Child two';
 parent.children[1].style.color='red';
 
-parent.firstElementChild.innerText="Child ONe";
-parent.lastElementChild.innerText="Child three";
+parent.firstElementChild.innerText='Child One';
+parent.lastElementChild.innerText='Child Three';
 
-//Get parent element from child
 
-const child=document.querySelector(".child");
+// Get parent elements from a child
+
+const child =document.querySelector('.child');
 
 output=child.parentElement;
 
-child.parentElement.style.border="1px solid teal";
-child.parentElement.style.padding="10px ";
+child.parentElement.style.border='1px solid #23f445';
+child.parentElement.style.padding='10px';
 
-// Sibling elements
+//sibling elements
+
 
 const secondItem=document.querySelector('.child:nth-child(2)');
 
-output =secondItem.nextElementSibling.style.color="green";
-output =secondItem.previousElementSibling.style.color="orange";
+output=secondItem;
+output=secondItem.nextElementSibling;
+
+secondItem.nextElementSibling.style.color='green'
+secondItem.previousElementSibling.style.color='yellow';
+
+
+
 console.log(output);

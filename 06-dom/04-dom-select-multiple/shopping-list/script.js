@@ -1,36 +1,36 @@
-//querySelectorAll()
+// querySelectorAll()
 
 const listItems=document.querySelectorAll('.item');
 
-console.log(listItems);
+console.log(listItems[1].innerText);
+listItems[1].style.color='red';
 
-// listItems[1].style.color='red';
-
-// listItems.forEach((elt, index)=> {
-//     elt.style.color='red';
-
-//     if(index===1){
-//         elt.remove();
+// listItems.forEach((item,index)=>{
+//     item.style.color='red';
+//     if(index===1)
+//     {
+//         item.remove();
 //     }
-//     if(index===0){
-//         elt.innerHTML=`Orange
-//         <button class="remove-item btn-link text-red">
-//           <i class="fa-solid fa-xmark"></i>
-//         </button>`;
+
+//     if(index==0){
+//         item.innerHTML=`
+//          Oranges
+//           <button class="remove-item btn-link text-red">
+//             <i class="fa-solid fa-xmark"></i>
+//           </button>
+//         `
 //     }
 // });
 
 const listItems2=document.getElementsByClassName('item');
 
 console.log(listItems2[2].innerText);
-listItems2Array=Array.from(listItems2);
+//for html collection we need convert it to array for using it
+const listItemsArray=Array.from(listItems2);
 
-listItems2Array.forEach(element => {
-    console.log(element.innerText);
-    
+listItemsArray.forEach((item)=>{
+    console.log(item.innerText);
 });
 
 const listItems3=document.getElementsByTagName('li');
-
-console.log(listItems3);
-
+console.log(listItems3[0].innerText);

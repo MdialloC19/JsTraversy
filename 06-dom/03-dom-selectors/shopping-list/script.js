@@ -1,67 +1,59 @@
 // document.getElementById();
 
-
-
 console.log(document.getElementById('app-title'));
 console.log(document.getElementById('app-title').id);
 console.log(document.getElementById('app-title').className);
 
-console.log(document.getElementById('app-title').getAttribute('id'));
+console.log(document.getElementById('app-title').getAttribute('class'));
 
-// Set attributes 
+
+//Set attributes
 
 // document.getElementById('app-title').id='new-id';
-
-//these are the same
 document.getElementById('app-title').title='Shopping List';
 
-document.getElementById('app-title').setAttribute('class','title');
+document.getElementById('app-title').setAttribute('class', 'title');
 
-console.log(document.getElementById('app-title'));
-
-const title=document.getElementById('app-title');
+const title= document.getElementById('app-title');
 
 //Get/Change content
-
 console.log(title.textContent);
 
 title.textContent='Hello World';
-title.innerText='Hello again';
-title.innerHTML='<strong>Shopping list</strong>';
-// Change Style
-title.style.color='white';
-title.style.backgroundColor='red';
-title.style.padding='10px';
-title.style.borderRadius='10px';
+title.innerText='Hello Again';
+title.innerHTML='<strong>Shopping List</strong>';
 
-//document.querySelector();
+// Change styles
+
+title.style.color='red';
+
+title.style.backgroundColor='cyan';
+title.style.padding='10px';
+title.style.borderRadius='15px';
+
+// document.querySelector()
 
 console.log(document.querySelector('h1'));
 console.log(document.querySelector('#app-title'));
-console.log(document.querySelector('.container'));
-console.log(document.querySelector('input[type="text"]'));
+console.log(document.querySelector('.container '));
+console.log(document.querySelector('input[type=text]'));
+
+console.log(document.querySelector('li'));// give the first list items
+
+console.log(document.querySelector('li:nth-child(2)'));
+
 console.log(document.querySelector('li:nth-child(2)').innerText);
 
 const secondItem=document.querySelector('li:nth-child(2)');
-secondItem.innerText='Apple Juice';
+
+secondItem.innerText='Apple juice';
 secondItem.style.color='red';
 
-//Use these methods on other elements;
+// Use these methods on other elements
 
 const list=document.querySelector('ul');
-
+console.log(list);
 const firstItem=list.querySelector('li');
+console.log(firstItem);
+
 firstItem.style.color='blue';
-
-const bouton=document.querySelector('button');
-// const inputVoir=document.getElementsByTagName('input')[1].placeholder='Nous allons filter';
-const inputVoir=document.getElementById('filter').setAttribute('placeholder','Nous allons filter');
-const itemsJuc=document.querySelector('li:nth-child(4)');
-itemsJuc.innerHTML='<em>Mango</em>';
-const images=document.querySelector('img');
-images.style.borderRadius='50px';
-bouton.style.backgroundColor='teal';
-
-console.log(images);
-
-

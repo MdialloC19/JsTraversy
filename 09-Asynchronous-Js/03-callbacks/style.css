@@ -1,0 +1,20 @@
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+button{
+    padding: 15px 20px;
+    background:black;
+    color:#fff;
+    border-radius: 15px;
+    border:0;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.danger{
+    background:red;
+}

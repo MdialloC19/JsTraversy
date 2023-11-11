@@ -49,8 +49,6 @@ xhr.onreadystatechange= function (){
             document.querySelector('#results').appendChild(li);
         });
     }
-
-
 }
 
 xhr.send();

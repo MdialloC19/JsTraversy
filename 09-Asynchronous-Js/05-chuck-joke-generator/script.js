@@ -1,4 +1,4 @@
- const jokeEl=document.querySelector('#joke');
+const jokeEl=document.querySelector('#joke');
 const jokeBtn=document.querySelector('#joke-btn');
 // readyState has 5 possible values
 // - 0: request not initialized

@@ -39,9 +39,28 @@
             return 5;
 
         }
+        function waitSync(duration){
+            const t=Date.now();
 
+            while(Date.now()-t<duration){
 
-     main().then((n)=>{
+            }
+        }
+
+        Promise.race([wait(1000), wait(2000)])
+            .then(console.log)
+            .catch(console.error)
+
+        const p2=new Promise((r)=>{
+            console.log("Hello");
+
+            r(2);
+        });
+        p.then(()=>console.log('Then'));
+        waitSync(2000);
+        (console.log("Les gens"));
+
+    /* main().then((n)=>{
         console.log(n)
      });
 

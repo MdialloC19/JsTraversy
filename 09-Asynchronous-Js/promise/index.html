@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1>Promise</h1>
+    <script>
+        const p=new Promise((resolve,reject)=>{
+            resolve(4);
+        });
+
+
+        function wait(duration){
+            return new Promise((resolve,reject)=>
+                setTimeout(()=>{
+                    resolve(duration)
+                }, duration));
+        }
+        function waitAndFail(duration) {
+                return new Promise((resolve, reject) =>
+                    setTimeout(() => {
+                       reject(duration)
+                    }, duration));
+            }
+
+        async function main(){
+            try{
+                const duration=await wait(2000);
+                console.log('Bonjour');
+                await wait(1000);
+                console.log('Hello');
+                console.log("Duration:", `${duration}`);
+            }catch(e){
+                console.log('Error')
+            }
+            return 5;
+
+        }
+
+
+     main().then((n)=>{
+        console.log(n)
+     });
+
+       /* wait(2000)
+            .then(()=>{
+                console.log('Attente 2s');
+                return wait(1000);
+            })
+            .then(()=>{
+                console.log('Attente 2s');
+            })
+
+       /*p.then((n)=>{
+            console.log("Le nombre",n)
+            throw new Error('echec');
+       })
+       .then((n)=>console.log("Le nombre  2", n))
+       .catch((e)=>{
+            console.log('Echec', e);
+       })
+       .finally(()=>console.log("aaa"))*/
+    </script>
+</body>
+</html>

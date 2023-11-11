@@ -29,7 +29,7 @@ const generateJoke = ()=>{
         }
     }
 };
-xhr.send();
+    xhr.send();
 }
 
 jokeBtn.addEventListener('click', generateJoke);

@@ -1,0 +1,14 @@
+[
+    {
+      "nom": "John Doe",
+      "entreprise": "ABC Inc."
+    },
+    {
+      "nom": "Jane Smith",
+      "entreprise": "XYZ Corporation"
+    },
+    {
+      "nom": "Michael Johnson",
+      "entreprise": "123 Industries"
+    }
+  ]

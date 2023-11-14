@@ -10,7 +10,6 @@ function fetchUser(){
         })
 }
 
-
 function displayUser(user){
 
     const userDisplay=document.querySelector('#user');

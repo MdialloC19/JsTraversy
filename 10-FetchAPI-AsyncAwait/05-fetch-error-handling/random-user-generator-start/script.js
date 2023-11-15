@@ -2,9 +2,7 @@ function fetchUser(){
     showSpinner();
     fetch('https://randomuser.me/api')
         .then((response)=>{
-         
-          if(response.ok){
-
+          if(!response.ok){
                 throw new Error('Not Found');
           }
           // if(response.status===404){
@@ -20,13 +18,14 @@ function fetchUser(){
             hideSpinner();
             displayUser(data.results[0]);
         })
-        .catch((error)=>{
+        .catch((error) => {
+          // console.error(error); // Log the error to the console for debugging
           hideSpinner();
-          document.querySelector('#user').innerHTML=`
-          <p class="text-xl text-center text-red-500 mb-5>
-            ${error}
-          </p>`;
-        });
+          document.querySelector('#user').innerHTML = `
+            <p class="text-xl text-center text-red-500 mb-5">
+              ${error.message}
+            </p>`;
+      });
 }
 
 function displayUser(user){

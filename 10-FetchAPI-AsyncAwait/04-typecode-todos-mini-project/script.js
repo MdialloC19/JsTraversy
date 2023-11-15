@@ -18,14 +18,6 @@ const getTodos=()=>{
         .then((data)=>{
             data.forEach((todo) => {
                 addTodoToDOM(todo);
-
-                
-                // const item=document.createElement('div');
-                // item.setAttribute('class','item');
-                // // div.innerText=element.title;
-                // console.log(item);
-                // item.innerHTML=`<div >${element.title}</div>  <div class="done">Take out trash</div>`;
-                // document.getElementById('todo-list').appendChild(item);
             });
         });
 }
@@ -92,11 +84,9 @@ updateTodo=(id,completed)=>{
 }
 
 const deleteTodo =(e)=>{
-     e.preventDefault();
-  
-
-     console.log('delete');
-   if(e.target.classList.contains('todo')){
+    e.preventDefault();
+    console.log('delete');
+    if(e.target.classList.contains('todo')){
         const id=e.target.dataset.id;
         fetch(`${apiUrl}/${e.target.dataset.id}`, {
             method:'DELETE',

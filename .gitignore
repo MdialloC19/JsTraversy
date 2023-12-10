@@ -1,4 +1,4 @@
 php_errors.log
 13-modules-and-tooling/NODE-PLAYGROUND/node_modules
 13-modules-and-tooling/webpack-basic-setup/webpack-starter/node_modules
-13-modules-and-tooling/webpack-basic-setup/webpack-starter/src
+13-modules-and-tooling/webpack-basic-setup/webpack-starter/dist
